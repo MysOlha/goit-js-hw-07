@@ -47,6 +47,8 @@ function onEscapeClick (evt) {
     if (modalOpen && evt.key === 'Escape') {
   
     instance.close()
+  
+    galleryImage.removeEventListener('keydown', onEscapeClick)
     }
   
 }

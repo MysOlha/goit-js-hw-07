@@ -4,7 +4,6 @@ import { galleryItems } from './gallery-items.js';
 const galleryImage = document.querySelector('.gallery')
 galleryImage.insertAdjacentHTML('beforeend', createGalleryImage(galleryItems))
 
-galleryImage.addEventListener('click', onImagesClick)
 
 function createGalleryImage(img) {
     return img
@@ -16,14 +15,7 @@ function createGalleryImage(img) {
     .join('')
 }
 
-function onImagesClick (evt) {
+
+new SimpleLightbox('.gallery a', {captionsData: 'alt', captionsDelay: 250} );
     
-    evt.preventDefault()
-    if(!evt.target.classList.contains('gallery__image')){
-        return
-    }
-    new SimpleLightbox('.gallery a', {captionsData: 'alt', captionsDelay: 250} );
     
-    galleryImage.removeEventListener('click', onImagesClick)
-}
-        
